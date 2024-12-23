@@ -1,10 +1,18 @@
 from textnode import TextNode, TextType
+from generator import generate_page
 
 import shutil
 import os
 
-path_to_static="/home/chaasfr/workspace/static-site/static"
-path_to_public="/home/chaasfr/workspace/static-site/public"
+
+path_to_root = "/Users/christianhaas-frangi/workspace/boot/static-site-generator/"
+
+path_to_static = path_to_root + "static/"
+path_to_public = path_to_root + "public/"
+path_to_index_md = path_to_root + "content/index.md"
+path_to_template = path_to_root + "template.html"
+path_to_index_html = path_to_public + "index.html"
+
 
 def clean_dest_and_copy(src, dest):
     if os.path.exists(dest):
@@ -21,6 +29,7 @@ def clean_dest_and_copy(src, dest):
 
 def main():
     clean_dest_and_copy(path_to_static, path_to_public)
+    generate_page(path_to_index_md, path_to_template, path_to_index_html)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 import unittest
 
-from extract import extract_markdown_images, extract_markdown_links
+from extract import extract_markdown_images, extract_markdown_links, extract_title
 
 class TestExtract(unittest.TestCase):
     def test_text_extract_nothing(self):
@@ -29,6 +29,18 @@ class TestExtract(unittest.TestCase):
         expected = [expected_tuple_1, expected_tuple_2]
 
         self.assertEqual(link_result, expected)
+
+
+    def test_extract_tile(self):
+        input = """"
+this is not a title
+# Title
+got it
+        """
+        expected = "Title"
+        
+        result = extract_title(input)
+        self.assertEqual(expected, result)
 
 if __name__ == "__main__":
     unittest.main()
