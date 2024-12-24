@@ -1,17 +1,11 @@
 from textnode import TextNode, TextType
-from generator import generate_page
+from generator import generate_pages_recursive
 
 import shutil
 import os
 
+from constant import *
 
-path_to_root = "/Users/christianhaas-frangi/workspace/boot/static-site-generator/"
-
-path_to_static = path_to_root + "static/"
-path_to_public = path_to_root + "public/"
-path_to_index_md = path_to_root + "content/index.md"
-path_to_template = path_to_root + "template.html"
-path_to_index_html = path_to_public + "index.html"
 
 
 def clean_dest_and_copy(src, dest):
@@ -29,7 +23,7 @@ def clean_dest_and_copy(src, dest):
 
 def main():
     clean_dest_and_copy(path_to_static, path_to_public)
-    generate_page(path_to_index_md, path_to_template, path_to_index_html)
+    generate_pages_recursive(path_to_content, path_to_template, path_to_public)
 
 
 if __name__ == '__main__':
