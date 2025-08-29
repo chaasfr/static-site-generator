@@ -1,5 +1,5 @@
 
-path_to_root = "/Users/christianhaas-frangi/workspace/boot/static-site-generator/"
+path_to_root = "/home/chaasfr/workspace/static-site/"
 
 path_to_static = path_to_root + "static/"
 path_to_public = path_to_root + "public/"
