@@ -91,7 +91,7 @@ def split_nodes_bold(nodes):
     return split_nodes_delimiter(nodes, "**", TextType.BOLD)
 
 def split_nodes_italic(nodes):
-    return split_nodes_delimiter(nodes, "*", TextType.ITALIC)
+    return split_nodes_delimiter(nodes, "_", TextType.ITALIC)
 
 def split_nodes_code(nodes):
     return split_nodes_delimiter(nodes, "`", TextType.CODE)
