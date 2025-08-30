@@ -3,6 +3,7 @@ from generator import generate_pages_recursive
 
 import shutil
 import os
+import sys
 
 from constant import *
 
@@ -22,8 +23,12 @@ def clean_dest_and_copy(src, dest):
             clean_dest_and_copy(path_src, path_dest)
 
 def main():
+    basepath = '/'
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+
     clean_dest_and_copy(path_to_static, path_to_public)
-    generate_pages_recursive(path_to_content, path_to_template, path_to_public)
+    generate_pages_recursive(basepath, path_to_content, path_to_template, path_to_public)
 
 
 if __name__ == '__main__':
